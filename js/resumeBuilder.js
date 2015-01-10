@@ -55,7 +55,8 @@ var bio = {
             twitter : "ditto",
             location : "evenidontknow"
         },
-        skills : ["javascript","html","css","staring into space"]
+        skills : ["javascript","html","css","staring into space"],
+        "pic" : "images/fry.jpg"
 };
 
 
@@ -114,9 +115,12 @@ var formattedHTMLlocation = HTMLlocation.replace('%data%', bio.contacts.location
 $('#topContacts').append(formattedHTMLmobile + formattedHTMLemail + formattedHTMLgithub + formattedHTMLtwitter
 + formattedHTMLlocation);
 //
-//var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
-//var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+//var HTMLbioPic = '<img src="%data%" class="biopic">';
+//var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
 
+var formattedHTMLbioPic = HTMLbioPic.replace('%data%', bio.pic);
+var formattedHTMLWelcomeMsg = HTMLWelcomeMsg.replace('%data%', bio.welcomeMessage);
+$('#header').append(formattedHTMLbioPic + formattedHTMLWelcomeMsg);
 
 
 $('#header:last').append(HTMLskillsStart);
