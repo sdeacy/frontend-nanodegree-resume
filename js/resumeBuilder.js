@@ -1,5 +1,3 @@
-/*work contains an array of jobs. Each job object in jobs should contain an employer, title, location, dates worked and description.
-    projects contains an array of projects. Each project object in projects should contain a title, dates worked, description, and an images array with URL strings for project images.*/
 
 
 function work(){
@@ -35,57 +33,56 @@ function work(){
 
 }
 
-
 function projects(){
- var projects = [
-                    {
+     var projects = [
+         {
 
-                        "title": "timer",
-                        "description" : "A timer application",
-                        "datesWorked" : "December 2014 to present",
-                        "images" :[ "images/197x148.gif", "images/197x148.gif"]
-                    },
-                    {
-                        "description" : "Another application",
-                        title: "nano",
-                        datesWorked : "December 2014 to present",
-                        "images" :[ "images/197x148.gif", "images/197x148.gif", "images/197x148.gif"]
-                        }
- ];
+             "title": "timer",
+             "description" : "A timer application",
+             "datesWorked" : "December 2014 to present",
+             "images" : [
+                 "images/197x148.gif", "images/197x148.gif"
+             ]
+         },
+         {
+             "description" : "Another application",
+             "title": "nano",
+             "datesWorked" : "December 2014 to present",
+             "images" : [
+                 "images/197x148.gif", "images/197x148.gif", "images/197x148.gif"
+             ]
+         }
+     ]
 
-
-    for(var proj in projects){
+    for(var proj in projects) {
         $('#projects').append(HTMLprojectStart);
         var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects[proj].title);
         var formattedProjectDates = HTMLprojectDates.replace('%data%', projects[proj].datesWorked);
         var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects[proj].description);
         $(".project-entry:last").append(formattedProjectTitle + formattedProjectDates + formattedProjectDescription);
         var imageArray = projects[proj].images;
-        for (img in imageArray){
+        for (img in imageArray) {
             var formattedProjectimage = HTMLprojectImage.replace('%data%', imageArray[img]);
-            console.log(formattedProjectimage);
             $('.project-entry:last').append(formattedProjectimage);
         }
     }
-
-
 }
 
-
-
-function bio(){
+function bio() {
 var bio = {
-        name : "Shay Deacy",
-        role: "Software Developer",
-        welcomeMessage : "A closed mouth catches no foot",
-        contacts : {
-            mobileNumber : "1234567890",
-            email : "alias@undercover.com",
-            github : "cantsay",
-            twitter : "ditto",
-            location : "evenidontknow"
-        },
-        skills : ["javascript","html","css","staring into space"],
+    "name" : "Shay Deacy",
+    "role" : "Software Developer",
+    "welcomeMessage" : "A closed mouth catches no foot",
+    "contacts" : {
+        "mobileNumber" : "1234567890",
+        "email" : "alias@undercover.com",
+        "github" : "cantsay",
+        "twitter" : "ditto",
+        "location" : "evenidontknow"
+    },
+    "skills" : [
+        "javascript","html","css","staring into space"
+    ],
         "pic" : "images/fry.jpg"
 }
 
@@ -104,36 +101,36 @@ var bio = {
     $('#header').append(formattedHTMLbioPic + formattedHTMLWelcomeMsg);
 
 
-    $('#header:last').append(HTMLskillsStart);
     var formattedHTMLskillsArray = bio.skills;
-    for(var skill in formattedHTMLskillsArray) {
-        var formattedHTMLskill = HTMLskills.replace('%data%',formattedHTMLskillsArray[skill] )
-        $('#skills').append(formattedHTMLskill);
+    if (formattedHTMLskillsArray.length > 0) {
+        $('#header:last').append(HTMLskillsStart);
+        for(var skill in formattedHTMLskillsArray) {
+            var formattedHTMLskill = HTMLskills.replace('%data%',formattedHTMLskillsArray[skill] )
+            $('#skills').append(formattedHTMLskill);
+        }
     }
-
-
-
 }
 
 function education(){
 var education = {
     "schools" : [
         {
-                name: "dit",
-                location: "Dublin",
-                degree: "Postgrad in Mobile development",
-                majors: ["iOS", "Object Oriented Development"],
-                datesAttended: "October 2014 to present",
-                courseURL: "http://www.dit.ie"
+            "name" : "dit",
+            "location" : "Dublin",
+            "degree" : "Postgrad in Mobile development",
+            "majors" : ["iOS", "Object Oriented Development"],
+            "datesAttended" : "October 2014 to present",
+            "courseURL": "http://www.dit.ie"
         },
-    {
-        name : "udacity",
-        location : "www",
-        degree : "Nano degree",
-        majors : ["front-end Development"],
-        datesAttended : "December 2014 to present",
-        courseURL : "http://www.udacity.com"
-    }],
+        {
+        "name" : "udacity",
+        "location" : "www",
+        "degree" : "Nano degree",
+        "majors" : ["front-end Development"],
+        "datesAttended" : "December 2014 to present",
+        "courseURL" : "http://www.udacity.com"
+         }
+    ],
     "onlineCourses" : [
         {
             "title" : "Nano degree",
@@ -171,30 +168,13 @@ var education = {
 
 }
 
-
-function header(){
+function header() {
     var name = "Shay Deacy";
     var role = "Web Developer";
     var formatedName = HTMLheaderName.replace('%data%', name);
     var formatedRole = HTMLheaderRole.replace('%data%', role);
     $('#header').prepend(formatedName, formatedRole);
 }
-
-//var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-//var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
-//var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-//var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-//var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-//var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-//var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-
-
-
-
-
-
-//var internationalizeButton = '<button>Internationalize</button>';
-//var googleMap = '<div id="map"></div>';
 
 $('#mapDiv').append(googleMap);
 
@@ -204,4 +184,13 @@ bio();
 work();
 projects();
 education();
+$('#name').append(internationalizeButton);
+
+function inName(name) {
+    var splitName = name.split(" ");
+    var lastName = splitName[1].toUpperCase();
+    return splitName[0] + " " + lastName;
+}
+
+
 

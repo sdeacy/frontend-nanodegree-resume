@@ -52,4 +52,5 @@ containing data about your work experience.
 5. Your resume should also `console.log()` information about click locations.
 On line 90 in helper.js, you’ll find a jQuery onclick handler that you’ll need to modify to work with the `logClicks(x,y)`
 function above it.
-6. It’s possible to make additional information show up when you click on the pins in the map. Check out line 174 in helper.js and the Google Maps API to get started.
+6. It’s possible to make additional information show up when you click on the pins in the map.
+Check out line 174 in helper.js and the Google Maps API to get started.
